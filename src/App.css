@@ -18,3 +18,12 @@
   font-size: x-large;
   padding-left: 35px;
 }
+
+.App-new-sighting-link {
+  height: 35px;
+  align-self: center;
+  margin-left: auto;
+  order: 2;
+  color: white;
+  font-size: x-large;
+}
