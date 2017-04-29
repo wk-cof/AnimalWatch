@@ -108,16 +108,16 @@ class Map extends Component {
 
   render() {
     return (
-      <div style={{height: `100%`}}>
+      <div style={{ height: '95vh' }}>
         <Helmet
           title="Getting Started"
         />
         <GettingStartedGoogleMap
           containerElement={
-            <div style={{ height: '800px' }} />
+            <div style={{ height: '100%' }} />
           }
           mapElement={
-            <div style={{ height: '800px' }} />
+            <div style={{ height: '100%' }} />
           }
           onMapLoad={this.handleMapLoad}
           onMapClick={this.handleMapClick}
