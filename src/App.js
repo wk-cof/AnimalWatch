@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './animalWatchLogo.jpeg';
+import logo from './images/animalWatchLogo.jpeg';
 import './App.css';
 import Map from './Map.js';
 import {

@@ -6,7 +6,7 @@ import {
 } from "react";
 
 import Helmet from "react-helmet";
-import './new-sighting.css';
+import './images/new-sighting.css';
 
 import {
   withGoogleMap,
