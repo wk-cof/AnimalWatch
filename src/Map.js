@@ -55,7 +55,6 @@ class Map extends Component {
       },
       key: `Taiwan`,
       defaultAnimation: 1,
-
     }],
   };
 

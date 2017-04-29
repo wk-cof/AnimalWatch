@@ -1,25 +1,19 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 import App from './App'
+import NewSighting from './new-sighting'
 
 const MyRouter = () => (
   <Router>
     <div>
       <Route exact path="/" component={App}/>
-      <Route path="/new-sighting" component={About}/>
+      <Route path="/new-sighting" component={NewSighting}/>
     </div>
   </Router>
-)
-
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
 )
 
 export default MyRouter
