@@ -4,4 +4,6 @@
     padding-left: 175px;
     padding-top: 175px;
     z-index: 1000;
+    box-sizing: inherit;
+    -webkit-box-sizing: inherit;
 }

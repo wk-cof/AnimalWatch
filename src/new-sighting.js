@@ -6,7 +6,7 @@ import {
 } from "react";
 
 import Helmet from "react-helmet";
-import './images/new-sighting.css';
+import './new-sighting.css';
 
 import {
   withGoogleMap,
@@ -14,12 +14,12 @@ import {
   Marker,
 } from "react-google-maps";
 
-import mapPin from "./map-pin-transparent-clipart-1.jpg"
+import mapPin from "./images/pin.jpg"
 
 const GettingStartedGoogleMap = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
-    defaultZoom={10}
+    defaultZoom={12}
     defaultCenter={{ lat: 44.4280, lng: -110.5885 }}
     onClick={props.onMapClick}
   >
@@ -51,10 +51,10 @@ class Map extends Component {
   render() {
     return (
       <div style={{height: `100%`}}>
-        <img src={mapPin} className="new-sightings-pin-image" alt="mapPin" />
         <Helmet
           title="Getting Started"
         />
+        <img src={mapPin} className="new-sightings-pin-image" />
         <GettingStartedGoogleMap
           containerElement={
             <div style={{ height: '400px', width: '400px' }} />
