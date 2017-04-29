@@ -120,7 +120,7 @@ class Map extends Component {
             <div style={{ height: '100%' }} />
           }
           onMapLoad={this.handleMapLoad}
-          onMapClick={this.handleMapClick}
+          onMapClick={_.noop}
           markers={this.state.markers}
           onMarkerRightClick={this.handleMarkerRightClick}
         />
