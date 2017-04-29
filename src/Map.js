@@ -1,4 +1,3 @@
-/* global google */
 import _ from "lodash";
 
 import {
@@ -23,8 +22,8 @@ import {
 const GettingStartedGoogleMap = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
-    defaultZoom={3}
-    defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+    defaultZoom={8}
+    defaultCenter={{ lat: 44.4280, lng: -110.5885 }}
     onClick={props.onMapClick}
   >
     {props.markers.map(marker => (
@@ -40,13 +39,23 @@ const GettingStartedGoogleMap = withGoogleMap(props => (
 class Map extends Component {
 
   state = {
-    markers: [{
+    markers: [
+    {
       position: {
-        lat: 25.0112183,
-        lng: 121.52067570000001,
+        lat: 44.7128,
+        lng: -110.0059
+      },
+      key: 'New York',
+      defaultAnimation: 5
+    },
+    {
+      position: {
+        lat: 44.7128,
+        lng: -111.0059
       },
       key: `Taiwan`,
-      defaultAnimation: 2,
+      defaultAnimation: 1,
+
     }],
   };
 
