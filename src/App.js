@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import logo from './images/animalWatchLogo.jpeg';
 import './App.css';
-import Map from './Map.js';
-import {
-  Link
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class App extends Component {
   render() {
@@ -17,7 +14,6 @@ class App extends Component {
               New Sighting
             </Link>
         </div>
-        <Map />
       </div>
     );
   }

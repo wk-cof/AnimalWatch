@@ -6,11 +6,13 @@ import {
 
 import App from './App'
 import NewSighting from './new-sighting'
+import Map from './Map'
 
 const MyRouter = () => (
   <Router>
     <div>
-      <Route exact path="/" component={App}/>
+      <App />
+      <Route exact path="/" component={Map}/>
       <Route path="/new-sighting" component={NewSighting}/>
     </div>
   </Router>

@@ -3,10 +3,11 @@
 
 .App-logo {
   height: 80px;
+  overflow: hidden;
 }
 
 .App-header {
-  background-color: #555;
+  background-color: #333;
   height: 70px;
   padding: 20px;
   color: white;
