@@ -46,7 +46,7 @@ class Map extends Component {
         lng: -110.0059
       },
       key: 'New York',
-      defaultAnimation: 5
+      defaultAnimation: 2
     },
     {
       position: {
