@@ -95,7 +95,7 @@ class NewSighting extends Component {
         <Button onClick={() => this.handleOnClick("Reptile")}><img src={snek} className="animal-type-button" /></Button>
         <Button onClick={() => this.handleOnClick("Amphibian")}><img src={frog} className="animal-type-button" /></Button>
         <Button onClick={() => this.handleOnClick("Fish")}><img src={fish} className="animal-type-button" /></Button>
-        <PageHeader>{animalTypeTitle}</PageHeader>
+        <PageHeader>You spotted a {animalTypeTitle}</PageHeader>
         {dropDownValues}
       </div>
     );
