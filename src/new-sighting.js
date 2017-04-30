@@ -20,7 +20,7 @@ import eagle from "./images/eagle.png"
 import frog from "./images/frog.png"
 import fish from "./images/fish.png"
 import snek from "./images/snek.png"
-import { Button } from "react-bootstrap";
+import { Button, PageHeader } from "react-bootstrap";
 import { Redirect } from 'react-router';
 
 const GettingStartedGoogleMap = withGoogleMap(props => (
@@ -39,7 +39,7 @@ const GettingStartedGoogleMap = withGoogleMap(props => (
   </GoogleMap>
 ));
 
-class Map extends Component {
+class NewSighting extends Component {
   state = {
     markers: [],
     name: null,
@@ -62,8 +62,13 @@ class Map extends Component {
   }
 
   render() {
+    let animalTypeTitle = '';
+    let dropDownValues;
     if (this.state.name) {
-      return <Redirect to={'/new-sighting/' + this.state.name} />;
+      animalTypeTitle = this.state.name;
+      if (this.state.name == 'Mammal') {
+        dropDownValues = <Mammal></Mammal>
+      }
     }
 
     return (
@@ -84,15 +89,17 @@ class Map extends Component {
           markers={this.state.markers}
           onMarkerRightClick={this.handleMarkerRightClick}
           />
-        <p> Animal Type </p>
-        <Button onClick={() => this.handleOnClick("bear")}><img src={bear} className="animal-type-button" /></Button>
-        <Button onClick={() => this.handleOnClick("eagle")}>><img src={eagle} className="animal-type-button" /></Button>
-        <Button onClick={() => this.handleOnClick("snek")}>><img src={snek} className="animal-type-button" /></Button>
-        <Button onClick={() => this.handleOnClick("frog")}>><img src={frog} className="animal-type-button" /></Button>
-        <Button onClick={() => this.handleOnClick("fish")}>><img src={fish} className="animal-type-button" /></Button>
+        <h2> Which animal type did you spot? </h2>
+        <Button onClick={() => this.handleOnClick("Mammal")}><img src={bear} className="animal-type-button" /></Button>
+        <Button onClick={() => this.handleOnClick("Bird")}><img src={eagle} className="animal-type-button" /></Button>
+        <Button onClick={() => this.handleOnClick("Reptile")}><img src={snek} className="animal-type-button" /></Button>
+        <Button onClick={() => this.handleOnClick("Amphibian")}><img src={frog} className="animal-type-button" /></Button>
+        <Button onClick={() => this.handleOnClick("Fish")}><img src={fish} className="animal-type-button" /></Button>
+        <PageHeader>{animalTypeTitle}</PageHeader>
+
       </div>
     );
   }
 }
 
-export default Map;
+export default NewSighting;
