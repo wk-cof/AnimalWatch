@@ -3,6 +3,7 @@ import _ from "lodash";
 import Modal from 'react-bootstrap-modal';
 import './rbm-patch.css';
 import './SightingModal.css';
+import moment from 'moment';
 
 class SightingModal extends Component {
   render() {
@@ -18,7 +19,7 @@ class SightingModal extends Component {
         </Modal.Header>
         <Modal.Body>
           <img src={sighting.value.animal.image_url} className='popup-modal-image' />
-          <h3>Last spotted: {sighting.value.created_at}</h3>
+          <h3>Last spotted: {moment(sighting.value.created_at).format('MMM, DD YYYY HH:mm:ss')}</h3>
           <p>{sighting.value.animal.description}</p>
         </Modal.Body>
         <Modal.Footer>

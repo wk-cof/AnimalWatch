@@ -158,7 +158,7 @@ class Map extends Component {
 
   render() {
     return (
-      <div style={{ height: '95vh' }}>
+      <div style={{ height: '85vh' }}>
         <Helmet
           title="Animal Watch"
           />
