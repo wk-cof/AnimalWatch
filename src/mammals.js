@@ -107,9 +107,9 @@ class Mammals extends Component {
             className="animal-type-button"
             onClick={() => this.handleOnClick('Squirrel', false)} /> </Button>
           <Button><img src={Wolf}
-            alt="Grey Wolf"
+            alt="Wolf"
             className="animal-type-button"
-            onClick={() => this.handleOnClick('Grey Wolf', true)} /> </Button>
+            onClick={() => this.handleOnClick('Wolf', true)} /> </Button>
           <Button><img src={Elk}
             alt="Elk"
             className="animal-type-button"
