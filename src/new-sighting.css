@@ -16,3 +16,8 @@
     height: 300px;
     width: 100%;
 }
+
+.animal-type-button {
+    height: 51px;
+    margin: 1px;
+}

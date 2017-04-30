@@ -15,6 +15,12 @@ import {
 } from "react-google-maps";
 
 import mapPin from "./images/pin.jpg"
+import bear from "./images/bear.png"
+import eagle from "./images/eagle.png"
+import frog from "./images/frog.png"
+import fish from "./images/fish.png"
+import snek from "./images/snek.png"
+import {Button} from "react-bootstrap";
 
 const GettingStartedGoogleMap = withGoogleMap(props => (
   <GoogleMap
@@ -67,6 +73,12 @@ class Map extends Component {
           markers={this.state.markers}
           onMarkerRightClick={this.handleMarkerRightClick}
         />
+        <p> Animal Type </p>
+        <Button> <img src={bear} className="animal-type-button" /></Button>
+        <Button> <img src={eagle} className="animal-type-button" /></Button>
+        <Button> <img src={snek} className="animal-type-button" /></Button>
+        <Button> <img src={frog} className="animal-type-button" /></Button>
+        <Button> <img src={fish} className="animal-type-button" /></Button>
       </div>
     );
   }
