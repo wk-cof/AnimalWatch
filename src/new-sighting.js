@@ -52,15 +52,15 @@ class Map extends Component {
     return (
       <div style={{height: `100%`}}>
         <Helmet
-          title="Getting Started"
+          title="Animal Watch: New Sighting"
         />
         <img src={mapPin} className="new-sightings-pin-image" />
         <GettingStartedGoogleMap
           containerElement={
-            <div style={{ height: '400px', width: '400px' }} />
+            <div className="new-sighting-map" />
           }
           mapElement={
-            <div style={{ height: '400px' }} />
+            <div style={{ height: '100%' }} />
           }
           onMapLoad={this.handleMapLoad}
           onMapClick={this.handleMapClick}

@@ -1,9 +1,18 @@
 .new-sightings-pin-image {
     position: absolute;
     height: 40px;
-    padding-left: 175px;
-    padding-top: 175px;
+    margin-left: 200px;
+    margin-top: 175px;
     z-index: 1000;
-    box-sizing: inherit;
-    -webkit-box-sizing: inherit;
+}
+
+.new-sighting-map {
+    height: 400px;
+    width: 400px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    height: 300px;
+    width: 100%;
 }

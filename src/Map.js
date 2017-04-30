@@ -124,7 +124,7 @@ class Map extends Component {
     return (
       <div style={{ height: '95vh' }}>
         <Helmet
-          title="Getting Started"
+          title="Animal Watch"
         />
         <NewSightingButton> New Sighting </NewSightingButton>
         <GettingStartedGoogleMap
