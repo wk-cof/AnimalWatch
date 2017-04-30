@@ -65,7 +65,7 @@ class NewSighting extends Component {
     let animalTypeTitle = '';
     let dropDownValues;
     if (this.state.name) {
-      animalTypeTitle = this.state.name;
+      animalTypeTitle = 'You spotted a ' + this.state.name;
       if (this.state.name == 'Mammal') {
         dropDownValues = <Mammals></Mammals>
       }
@@ -95,7 +95,7 @@ class NewSighting extends Component {
         <Button onClick={() => this.handleOnClick("Reptile")}><img src={snek} className="animal-type-button" /></Button>
         <Button onClick={() => this.handleOnClick("Amphibian")}><img src={frog} className="animal-type-button" /></Button>
         <Button onClick={() => this.handleOnClick("Fish")}><img src={fish} className="animal-type-button" /></Button>
-        <PageHeader>You spotted a {animalTypeTitle}</PageHeader>
+        <PageHeader>{animalTypeTitle}</PageHeader>
         {dropDownValues}
       </div>
     );
