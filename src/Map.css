@@ -8,8 +8,8 @@
 @media only screen and (max-width: 768px) {
     .map-new-sighting-button {
         position: absolute;
-        margin-left: 50%;
-        margin-top: 80vh;
+        margin-left: 10%;
+        margin-top: 70vh;
         z-index: 1000;
     }
 }
