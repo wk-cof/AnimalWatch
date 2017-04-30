@@ -20,7 +20,7 @@ import eagle from "./images/eagle.png"
 import frog from "./images/frog.png"
 import fish from "./images/fish.png"
 import snek from "./images/snek.png"
-import {Button} from "react-bootstrap";
+import {Button, PageHeader} from "react-bootstrap";
 
 const GettingStartedGoogleMap = withGoogleMap(props => (
   <GoogleMap
@@ -73,7 +73,7 @@ class Map extends Component {
           markers={this.state.markers}
           onMarkerRightClick={this.handleMarkerRightClick}
         />
-        <p> Animal Type </p>
+        <h2> What type of animal do you see? </h2>
         <Button> <img src={bear} className="animal-type-button" /></Button>
         <Button> <img src={eagle} className="animal-type-button" /></Button>
         <Button> <img src={snek} className="animal-type-button" /></Button>
