@@ -4,6 +4,12 @@ import {
   Component,
 } from "react";
 
+import {
+  ToastContainer,
+  ToastMessage,
+} from 'react-toastr';
+const ToastMessageFactory = React.createFactory(ToastMessage.animation);
+
 import BrownBear from './images/brown-bear.png'
 import BighornSheep from './images/bighorn-sheep.png'
 import Bison from './images/bison.png'
@@ -24,9 +30,15 @@ class Mammals extends Component {
     this.state = {};
   }
   handleOnClick(animalName, isDangerZone) {
-    console.log(animalName);
     this.setState({ mammalName: animalName, isDangerZone: isDangerZone });
   }
+
+  addAlert() {
+    this.refs.container.warning(`This animal is dangerous! Don't come closer than 100 yards away.`, `Hey there!`, {
+      closeButton: true,
+    });
+  }
+
   render() {
     let mammalName = '', submitButton = '';
     if (this.state.mammalName) {
@@ -34,10 +46,15 @@ class Mammals extends Component {
       submitButton = <Button type='submit' bsStyle="success" bsSize='large'> Submit </Button>
     }
     if (this.state.isDangerZone) {
-      console.log('danger!');
+      this.addAlert();
     }
     return (
         <div>
+          <ToastContainer
+            toastMessageFactory={ToastMessageFactory}
+            ref="container"
+            className="toast-top-right"
+          />
           <ButtonGroup>
             <Button><img  src={BrownBear}
                           alt="Brown Bear"
