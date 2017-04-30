@@ -11,7 +11,8 @@
     "react-modal": "^1.7.7",
     "react-refetch": "^1.0.0",
     "react-router": "4.1.1",
-    "react-toastr": "2.8.2"
+    "react-toastr": "2.8.2",
+    "react-user-media": "0.1.8"
   },
   "devDependencies": {
     "react-google-maps": "^6.3.0",
