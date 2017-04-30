@@ -12,17 +12,20 @@ import {
   GoogleMap,
   Marker,
 } from "react-google-maps";
+
 import { Button } from 'react-bootstrap';
 import './Map.css';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+
+import SightingModal from './SightingModal.js';
 
 const NewSightingButton = withRouter(({ history }) => (
   <Button
     bsStyle="success"
     bsSize="large"
     className="map-new-sighting-button"
-    onClick={() => { history.push('/new-sighting') }}
-  >
+    onClick={() => { history.push('/new-sighting') } }
+    >
     New Sighting
   </Button>
 ))
@@ -41,12 +44,12 @@ const GettingStartedGoogleMap = withGoogleMap(props => (
     defaultZoom={8}
     defaultCenter={{ lat: 44.4280, lng: -110.5885 }}
     onClick={props.onMapClick}
-  >
+    >
     {props.markers.map(marker => (
       <Marker
         {...marker}
         onRightClick={() => props.onMarkerRightClick(marker)}
-      />
+        />
     ))}
   </GoogleMap>
 ));
@@ -60,30 +63,31 @@ class Map extends Component {
       markers: [],
     }
   }
-//   state = {
-//     markers: [
-//     {
-//       position: {
-//         lat: 44.7128,
-//         lng: -110.0059
-//       },
-//       key: 'New York',
-//       defaultAnimation: 2
-//     },
-//     {
-//       position: {
-//         lat: 44.7128,
-//         lng: -111.0059
-//       },
-//       key: `Taiwan`,
-//       defaultAnimation: 1,
-//     }],
-//   };
+  //   state = {
+  //     markers: [
+  //     {
+  //       position: {
+  //         lat: 44.7128,
+  //         lng: -110.0059
+  //       },
+  //       key: 'New York',
+  //       defaultAnimation: 2
+  //     },
+  //     {
+  //       position: {
+  //         lat: 44.7128,
+  //         lng: -111.0059
+  //       },
+  //       key: `Taiwan`,
+  //       defaultAnimation: 1,
+  //     }],
+  //   };
 
   componentWillReceiveProps(nextProps) {
+    // TODO(ry): allow real-time refresh
     if (nextProps.sightingsFetch.fulfilled && this.state.markers.length === 0) {
       const markers = [];
-      nextProps.sightingsFetch.value.forEach(sighting => 
+      nextProps.sightingsFetch.value.forEach(sighting =>
         markers.push({
           position: {
             lat: sighting.latitude,
@@ -95,6 +99,7 @@ class Map extends Component {
       )
       this.setState({
         markers: markers,
+        isOpen: false,
       })
     }
   }
@@ -136,15 +141,8 @@ class Map extends Component {
   }
 
   handleMarkerRightClick(targetMarker) {
-    /*
-     * All you modify is data, and the view is driven by data.
-     * This is so called data-driven-development. (And yes, it's now in
-     * web front end and even with google maps API.)
-     */
-    const nextMarkers = this.state.markers.filter(marker => marker !== targetMarker);
-    this.setState({
-      markers: nextMarkers,
-    });
+    this.props.lazySightingFetch(targetMarker.key);
+    this.setState({ isOpen: true });
   }
 
   render() {
@@ -152,7 +150,7 @@ class Map extends Component {
       <div style={{ height: '95vh' }}>
         <Helmet
           title="Animal Watch"
-        />
+          />
         <NewSightingButton> New Sighting </NewSightingButton>
         <GettingStartedGoogleMap
           containerElement={
@@ -165,7 +163,14 @@ class Map extends Component {
           onMapClick={_.noop}
           markers={this.state.markers}
           onMarkerRightClick={this.handleMarkerRightClick}
-        />
+          />
+        {this.props.sightingFetch && this.props.sightingFetch.fulfilled &&
+          <SightingModal
+            isOpen={this.state.isOpen}
+            sighting={this.props.sightingFetch}
+            closeCallback={() => { this.setState({ isOpen: false }); } }
+          />
+        }
       </div>
     );
   }
@@ -174,4 +179,7 @@ class Map extends Component {
 export default connect(props => ({
   // sightingsFetch: `localhost:8080/sightings`,
   sightingsFetch: `https://animal-watch-api.herokuapp.com/sightings`,
+  lazySightingFetch: id => ({
+    sightingFetch: `https://animal-watch-api.herokuapp.com/sightings/${id}`,
+  }),
 }))(Map);
