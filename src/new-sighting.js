@@ -7,6 +7,7 @@ import {
 
 import Helmet from "react-helmet";
 import './new-sighting.css';
+import Mammals from './mammals';
 
 import {
   withGoogleMap,
