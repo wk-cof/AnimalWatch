@@ -26,8 +26,8 @@ import { Redirect } from 'react-router';
 const GettingStartedGoogleMap = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
-    defaultZoom={12}
-    defaultCenter={{ lat: 44.4280, lng: -110.5885 }}
+    defaultZoom={13}
+    defaultCenter={{ lat: 44.4180, lng: -110.595 }}
     onClick={props.onMapClick}
     >
     {props.markers.map(marker => (
