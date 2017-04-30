@@ -10,13 +10,12 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2 className="App-header-text">Animal Watch</h2>
-            <Link to={`/new-sighting`} className="App-new-sighting-link">
-              New Sighting
-            </Link>
         </div>
       </div>
     );
   }
 }
-
+//<Link to={`/new-sighting`} className="App-new-sighting-link">
+//              New Sighting
+//            </Link>
 export default App;

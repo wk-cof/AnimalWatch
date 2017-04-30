@@ -12,6 +12,20 @@ import {
   GoogleMap,
   Marker,
 } from "react-google-maps";
+import { Button } from 'react-bootstrap';
+import './Map.css';
+import { withRouter } from 'react-router-dom'
+
+const NewSightingButton = withRouter(({ history }) => (
+  <Button
+    bsStyle="success"
+    bsSize="large"
+    className="map-new-sighting-button"
+    onClick={() => { history.push('/new-sighting') }}
+  >
+    New Sighting
+  </Button>
+))
 
 /*
  * This is the modify version of:
@@ -112,6 +126,7 @@ class Map extends Component {
         <Helmet
           title="Getting Started"
         />
+        <NewSightingButton> New Sighting </NewSightingButton>
         <GettingStartedGoogleMap
           containerElement={
             <div style={{ height: '100%' }} />
