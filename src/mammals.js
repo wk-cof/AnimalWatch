@@ -25,6 +25,8 @@ import { Button, ButtonGroup } from "react-bootstrap";
 import { connect, PromiseState } from 'react-refetch';
 import { browserHistory } from 'react-router';
 
+import Camera from './camera.js';
+
 class Mammals extends Component {
   constructor(props) {
     super(props);
@@ -134,6 +136,10 @@ class Mammals extends Component {
               >
               Submit
               </Button>
+
+         <Camera>
+         <Button onClick={() => { this.refs.webcam.captureScreenshot(); }}></Button>
+         </Camera>
           </div>
         }
       </div>
