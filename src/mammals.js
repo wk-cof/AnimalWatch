@@ -12,6 +12,8 @@ import Squirrel from './images/squirrel.png'
 import Wolf from './images/wolf.png'
 import Elk from './images/elk.png'
 import Jackrabbit from './images/jackrabbit.png'
+import RiverOtter from './images/river-otter.png'
+import Beaver from './images/beaver.png'
 
 
 import {Button, ButtonGroup} from "react-bootstrap";
@@ -26,9 +28,10 @@ class Mammals extends Component {
     this.setState({ mammalName: animalName });
   }
   render() {
-    let mammalName = '';
+    let mammalName = '', submitButton = '';
     if (this.state.mammalName) {
       mammalName = <h2> It's a {this.state.mammalName} </h2>;
+      submitButton = <Button type='submit' bsStyle="primary" bsSize='x-large'> Submit </Button>
     }
     return (
         <div>
@@ -65,8 +68,17 @@ class Mammals extends Component {
                           alt="Jackrabbit"
                           className="animal-type-button"
                           onClick={() => this.handleOnClick('Jackrabbit')}/> </Button>
+            <Button><img  src={RiverOtter}
+                          alt="River Otter"
+                          className="animal-type-button"
+                          onClick={() => this.handleOnClick('River Otter')}/> </Button>
+            <Button><img  src={Beaver}
+                          alt="Beaver"
+                          className="animal-type-button"
+                          onClick={() => this.handleOnClick('Beaver')}/> </Button>
           </ButtonGroup>
           {mammalName}
+          {submitButton}
         </div>
     );
   }
