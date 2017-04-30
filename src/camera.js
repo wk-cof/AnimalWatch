@@ -1,11 +1,12 @@
 import React from 'react';
-// import Webcam from 'react-webcam';
-// import Webcam from "react-user-media";
+import './camera.css'
 
 class Camera extends React.Component {
   render() {
-  // return <Webcam/>;
-  return <input type="file" accept="image/*" capture="camera" />
+    return <label className="cameraButton">
+        <input type="file" accept="image/*;capture=camera" id="camera" />
+        Take a picture
+      </label>
   }
 }
 

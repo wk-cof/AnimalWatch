@@ -130,16 +130,16 @@ class Mammals extends Component {
         {this.state.mammalName &&
           <div>
             <h2>It's a {this.state.mammalName}</h2>
-            <Button
-              type='submit' bsStyle="success" bsSize='large'
-              onClick={() => this.createSighting(this.state.mammalName)}
-              >
-              Submit
-              </Button>
-
          <Camera>
-         <Button onClick={() => { this.refs.webcam.captureScreenshot(); }}></Button>
+            <Button onClick={() => { this.refs.webcam.captureScreenshot(); }}></Button>
          </Camera>
+          &nbsp;
+         <Button
+            type='submit' bsStyle="success" bsSize='large'
+            onClick={() => this.createSighting(this.state.mammalName)}
+            >
+            Submit
+          </Button>
           </div>
         }
       </div>
