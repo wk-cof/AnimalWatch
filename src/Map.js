@@ -27,6 +27,8 @@ const NewSightingButton = withRouter(({ history }) => (
   </Button>
 ))
 
+import { connect, PromiseState } from 'react-refetch';
+
 /*
  * This is the modify version of:
  * https://developers.google.com/maps/documentation/javascript/examples/event-arguments
@@ -52,25 +54,50 @@ const GettingStartedGoogleMap = withGoogleMap(props => (
 
 class Map extends Component {
 
-  state = {
-    markers: [
-    {
-      position: {
-        lat: 44.7128,
-        lng: -110.0059
-      },
-      key: 'New York',
-      defaultAnimation: 2
-    },
-    {
-      position: {
-        lat: 44.7128,
-        lng: -111.0059
-      },
-      key: `Taiwan`,
-      defaultAnimation: 1,
-    }],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      markers: [],
+    }
+  }
+//   state = {
+//     markers: [
+//     {
+//       position: {
+//         lat: 44.7128,
+//         lng: -110.0059
+//       },
+//       key: 'New York',
+//       defaultAnimation: 2
+//     },
+//     {
+//       position: {
+//         lat: 44.7128,
+//         lng: -111.0059
+//       },
+//       key: `Taiwan`,
+//       defaultAnimation: 1,
+//     }],
+//   };
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.sightingsFetch.fulfilled && this.state.markers.length === 0) {
+      const markers = [];
+      nextProps.sightingsFetch.value.forEach(sighting => 
+        markers.push({
+          position: {
+            lat: sighting.latitude,
+            lng: sighting.longitude,
+          },
+          key: sighting.id,
+          defaultAnimation: 1,
+        })
+      )
+      this.setState({
+        markers: markers,
+      })
+    }
+  }
 
   handleMapLoad = this.handleMapLoad.bind(this);
   handleMapClick = this.handleMapClick.bind(this);
@@ -144,4 +171,7 @@ class Map extends Component {
   }
 }
 
-export default Map;
+export default connect(props => ({
+  // sightingsFetch: `localhost:8080/sightings`,
+  sightingsFetch: `https://animal-watch-api.herokuapp.com/sightings`,
+}))(Map);
