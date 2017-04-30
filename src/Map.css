@@ -1,6 +1,6 @@
 .map-new-sighting-button {
-    position: fixed;
+    position: absolute;
     margin-left: 10%;
-    margin-top: 80%;
+    margin-top: 90vh;
     z-index: 1000;
 }
