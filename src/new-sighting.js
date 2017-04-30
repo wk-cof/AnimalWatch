@@ -14,7 +14,6 @@ import {
   GoogleMap,
   Marker,
 } from "react-google-maps";
-
 import mapPin from "./images/pin.jpg"
 import bear from "./images/bear.png"
 import eagle from "./images/eagle.png"
@@ -68,7 +67,7 @@ class NewSighting extends Component {
     if (this.state.name) {
       animalTypeTitle = this.state.name;
       if (this.state.name == 'Mammal') {
-        dropDownValues = <Mammal></Mammal>
+        dropDownValues = <Mammals></Mammals>
       }
     }
 
@@ -97,7 +96,7 @@ class NewSighting extends Component {
         <Button onClick={() => this.handleOnClick("Amphibian")}><img src={frog} className="animal-type-button" /></Button>
         <Button onClick={() => this.handleOnClick("Fish")}><img src={fish} className="animal-type-button" /></Button>
         <PageHeader>{animalTypeTitle}</PageHeader>
-
+        {dropDownValues}
       </div>
     );
   }
