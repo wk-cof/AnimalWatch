@@ -13,11 +13,12 @@ class SightingModal extends Component {
         aria-labelledby="ModalHeader"
       >
         <Modal.Header closeButton>
-          <Modal.Title id='ModalHeader'>Animal</Modal.Title>
+          <Modal.Title id='ModalHeader'>{sighting.value.Animal.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <img src={sighting.value.image_url} />
           <h3>Last spotted @ {sighting.value.created_at}</h3>
+          <p>{sighting.value.Animal.description}</p>
         </Modal.Body>
         <Modal.Footer>
           <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>

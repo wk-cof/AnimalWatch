@@ -88,7 +88,7 @@ class NewSighting extends Component {
           onMapClick={this.handleMapClick}
           markers={this.state.markers}
           onMarkerRightClick={this.handleMarkerRightClick}
-          />
+        />
         <h2> Which animal type did you spot? </h2>
         <Button onClick={() => this.handleOnClick("Mammal")}><img src={bear} className="animal-type-button" /></Button>
         <Button onClick={() => this.handleOnClick("Bird")}><img src={eagle} className="animal-type-button" /></Button>

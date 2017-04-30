@@ -48,7 +48,7 @@ const GettingStartedGoogleMap = withGoogleMap(props => (
     {props.markers.map(marker => (
       <Marker
         {...marker}
-        onRightClick={() => props.onMarkerRightClick(marker)}
+        onClick={() => props.onMarkerLeftClick(marker)}
         />
     ))}
   </GoogleMap>
@@ -106,7 +106,7 @@ class Map extends Component {
 
   handleMapLoad = this.handleMapLoad.bind(this);
   handleMapClick = this.handleMapClick.bind(this);
-  handleMarkerRightClick = this.handleMarkerRightClick.bind(this);
+  handleMarkerLeftClick = this.handleMarkerLeftClick.bind(this);
 
   handleMapLoad(map) {
     this._mapComponent = map;
@@ -134,13 +134,13 @@ class Map extends Component {
 
     if (nextMarkers.length === 3) {
       this.props.toast(
-        `Right click on the marker to remove it`,
+        `Left click on the marker to see more info`,
         `Also check the code!`
       );
     }
   }
 
-  handleMarkerRightClick(targetMarker) {
+  handleMarkerLeftClick(targetMarker) {
     this.props.lazySightingFetch(targetMarker.key);
     this.setState({ isOpen: true });
   }
@@ -162,7 +162,7 @@ class Map extends Component {
           onMapLoad={this.handleMapLoad}
           onMapClick={_.noop}
           markers={this.state.markers}
-          onMarkerRightClick={this.handleMarkerRightClick}
+          onMarkerLeftClick={this.handleMarkerLeftClick}
           />
         {this.props.sightingFetch && this.props.sightingFetch.fulfilled &&
           <SightingModal
