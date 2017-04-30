@@ -1,5 +1,5 @@
 import _ from "lodash";
-
+import moment from "moment";
 import {
   default as React,
   Component,
@@ -83,6 +83,17 @@ class Map extends Component {
   //     }],
   //   };
 
+  shouldBounce(sighting) {
+    let now = moment(Date());
+    let then = moment(sighting.created_at);
+    let dateDiff = moment.utc(moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss")));
+    console.log(parseInt(dateDiff.format('HH')));
+    if (parseInt(dateDiff.format('HH'), 10) >= 4) {
+      return 2;
+    }
+    return 1;
+  }
+
   componentWillReceiveProps(nextProps) {
     // TODO(ry): allow real-time refresh
     if (nextProps.sightingsFetch.fulfilled && this.state.markers.length === 0) {
@@ -94,7 +105,7 @@ class Map extends Component {
             lng: sighting.longitude,
           },
           key: sighting.id,
-          defaultAnimation: 1,
+          defaultAnimation: this.shouldBounce(sighting),
         })
       )
       this.setState({
